@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Playfair_Display, Source_Sans_3 } from "next/font/google";
 import "./globals.css";
 import { AudioProvider } from "./components/AudioProvider";
-import AudioControl from "./components/AudioControl";
+import ConditionalAudioControl from "./components/ConditionalAudioControl";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -32,7 +32,7 @@ export default function RootLayout({
         className={`${playfair.variable} ${sourceSans.variable} antialiased`}
       >
         <AudioProvider>
-          <AudioControl />
+          <ConditionalAudioControl />
           {children}
         </AudioProvider>
       </body>

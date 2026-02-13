@@ -8,6 +8,7 @@ interface AudioContextType {
   isMuted: boolean;
   toggleMute: () => void;
   startAudio: () => void;
+  stopAudio: () => void;
 }
 
 const AudioContext = createContext<AudioContextType | undefined>(undefined);
@@ -89,8 +90,15 @@ export function AudioProvider({ children }: { children: ReactNode }) {
     }
   };
 
+  const stopAudio = () => {
+    if (sound) {
+      sound.stop();
+      setIsPlaying(false);
+    }
+  };
+
   return (
-    <AudioContext.Provider value={{ isPlaying, isMuted, toggleMute, startAudio }}>
+    <AudioContext.Provider value={{ isPlaying, isMuted, toggleMute, startAudio, stopAudio }}>
       {children}
     </AudioContext.Provider>
   );

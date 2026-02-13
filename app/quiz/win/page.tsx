@@ -193,9 +193,18 @@ export default function WinPage() {
                       href="https://www.google.com/search?q=Pretty+skin+beauty+bar"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-block bg-rose-600 hover:bg-rose-700 text-white px-6 py-2 rounded-full text-sm font-semibold transition-colors mt-2"
+                      className="inline-block bg-rose-600 hover:bg-rose-700 text-white px-6 py-2 rounded-full text-sm font-semibold transition-colors mt-2 mr-2"
                     >
                       View on Google Maps 🗺️
+                    </a>
+                    
+                    <a
+                      href="https://www.instagram.com/prettyskinbykamilya"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-6 py-2 rounded-full text-sm font-semibold transition-colors mt-2"
+                    >
+                      Instagram 📸
                     </a>
                   </div>
                 </div>
