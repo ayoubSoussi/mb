@@ -2,6 +2,7 @@
 const nextConfig = {
   output: 'export',
   basePath: '/maryam-bakkar',
+  assetPrefix: '/maryam-bakkar',
   images: {
     unoptimized: true
   },
