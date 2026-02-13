@@ -20,7 +20,7 @@ nvm use 20
 node --version  # Should show v20.x.x
 
 # Now try building again
-cd /home/ayoub/myspace/perso/maryam-bakkar
+cd /home/ayoub/myspace/perso/mb
 npm run build
 ```
 
@@ -28,7 +28,7 @@ npm run build
 
 If you can't upgrade Node.js right now:
 ```bash
-cd /home/ayoub/myspace/perso/maryam-bakkar
+cd /home/ayoub/myspace/perso/mb
 npm install next@14 react@18 react-dom@18
 npm run build
 ```
@@ -67,7 +67,7 @@ Replace placeholder images in `/public/images/`:
 ### Step 1: Create GitHub Repository
 ```bash
 # The git repo is already initialized
-cd /home/ayoub/myspace/perso/maryam-bakkar
+cd /home/ayoub/myspace/perso/mb
 
 # Add all files
 git add .
@@ -75,12 +75,12 @@ git commit -m "Initial commit: Our Love Story website"
 
 # Create repo on GitHub (use your browser):
 # Go to: https://github.com/new
-# Repository name: maryam-bakkar
+# Repository name: mb
 # Make it Private (recommended for personal gift)
 # Don't initialize with README
 
 # Add remote and push
-git remote add origin https://github.com/ayoubsoussi/maryam-bakkar.git
+git remote add origin https://github.com/ayoubsoussi/mb.git
 git branch -M main
 git push -u origin main
 ```
@@ -97,12 +97,12 @@ git push -u origin main
 ### Step 3: Access Your Site
 
 After the GitHub Action completes (2-3 minutes):
-- **URL**: https://ayoubsoussi.github.io/maryam-bakkar
+- **URL**: https://ayoubsoussi.github.io/mb
 
 ## 🧪 Test Locally (After Node.js Update)
 
 ```bash
-cd /home/ayoub/myspace/perso/maryam-bakkar
+cd /home/ayoub/myspace/perso/mb
 
 # Development mode
 npm run dev
