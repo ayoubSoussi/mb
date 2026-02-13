@@ -2,11 +2,40 @@
 
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { Howl } from 'howler';
+import { useAudio } from '../../components/AudioProvider';
 
 export default function WinPage() {
   const router = useRouter();
   const [showPrize, setShowPrize] = useState(false);
+  const { stopAudio } = useAudio();
+
+  useEffect(() => {
+    // Stop background music
+    stopAudio();
+    
+    // Play win sound when page loads
+    const winSound = new Howl({
+      src: [`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/win-sound.mp3`],
+      format: ['mp3'],
+      volume: 0.5,
+      html5: true,
+      onload: () => {
+        console.log('Win sound loaded successfully');
+      },
+      onloaderror: (id, error) => {
+        console.error('Error loading win sound:', error);
+      },
+    });
+
+    winSound.play();
+
+    // Cleanup
+    return () => {
+      winSound.unload();
+    };
+  }, [stopAudio]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-yellow-100 via-pink-100 to-rose-100 px-4 py-16 flex items-center justify-center relative overflow-hidden">
