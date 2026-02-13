@@ -59,14 +59,14 @@ export function AudioProvider({ children }: { children: ReactNode }) {
       });
 
       setSound(newSound);
+      setIsMuted(false); // Unmute when starting audio
       
-      if (!isMuted) {
-        const playPromise = newSound.play();
-        if (playPromise !== undefined) {
-          console.log('Attempting to play audio...');
-        }
+      const playPromise = newSound.play();
+      if (playPromise !== undefined) {
+        console.log('Attempting to play audio...');
       }
-    } else if (!isPlaying && !isMuted) {
+    } else if (!isPlaying) {
+      setIsMuted(false); // Unmute when resuming audio
       sound.play();
       setIsPlaying(true);
     }

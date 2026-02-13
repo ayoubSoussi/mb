@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import { storyPages } from './storyData';
 import Image from 'next/image';
+import { useEffect } from 'react';
+import { useAudio } from '../components/AudioProvider';
 
 interface StoryPageProps {
   pageId: number;
@@ -11,8 +13,16 @@ interface StoryPageProps {
 
 export default function StoryPageComponent({ pageId }: StoryPageProps) {
   const router = useRouter();
+  const { startAudio } = useAudio();
   
   const currentPage = storyPages.find(page => page.id === pageId);
+  
+  // Auto-start music when entering page 1
+  useEffect(() => {
+    if (pageId === 1) {
+      startAudio();
+    }
+  }, [pageId, startAudio]);
   
   if (!currentPage) {
     return null;
