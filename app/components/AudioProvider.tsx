@@ -32,7 +32,8 @@ export function AudioProvider({ children }: { children: ReactNode }) {
   const startAudio = () => {
     if (!sound) {
       const newSound = new Howl({
-        src: ['/mb/song.mp3'],
+        src: [`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/song.mp3`],
+        format: ['mp3'],
         loop: true,
         volume: 0.3,
         html5: true,
@@ -41,6 +42,7 @@ export function AudioProvider({ children }: { children: ReactNode }) {
         },
         onloaderror: (id, error) => {
           console.error('Error loading audio:', error);
+          console.error('Attempted path:', `${process.env.NEXT_PUBLIC_BASE_PATH || ''}/song.mp3`);
         },
         onplay: () => {
           console.log('Audio started playing');
