@@ -32,7 +32,7 @@ export function AudioProvider({ children }: { children: ReactNode }) {
   const startAudio = () => {
     if (!sound) {
       const newSound = new Howl({
-        src: ['/mb/song.mp3'],
+        src: ['/song.mp3'],
         loop: true,
         volume: 0.3,
         html5: true,
